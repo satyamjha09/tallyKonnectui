@@ -30,8 +30,8 @@ export default function HomePage() {
         <HeroSection />
         <ProductStackSection />
         <TestimonialsSection />
-        <IntegrationPathsSection />
-        <NoCodeProductsSection />
+        {/* <IntegrationPathsSection /> */}
+        {/* <NoCodeProductsSection /> */}
         <ConnectSystemsSection />
         <ContactSection />
         <ScaleWithConfidenceSection />

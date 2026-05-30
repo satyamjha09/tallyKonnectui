@@ -47,106 +47,99 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-9 lg:flex">
-          <Link
-            href="/"
-            className="text-[15px] font-semibold text-[#17263b] transition-colors hover:text-[#3562fa]"
-          >
-            Home
-          </Link>
-
-          {/* Solutions Dropdown */}
-          <div className="group relative">
-            <button
-              type="button"
-              className="flex items-center gap-1.5 py-7 text-[15px] font-semibold text-[#17263b] transition-colors group-hover:text-[#3562fa]"
-            >
-              Solutions
-              <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-            </button>
-
-            <div className="invisible absolute left-1/2 top-full w-[320px] -translate-x-1/2 translate-y-3 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-[0_22px_65px_rgba(15,23,42,0.14)] transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-              {solutionItems.map((item) =>
-                item.hasSubmenu ? (
-                  /* Connected Banking Nested Dropdown */
-                  <div key={item.name} className="group/banking relative">
-                    <button
-                      type="button"
-                      className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[14px] font-semibold text-[#17263b] transition-colors hover:bg-[#f4f7ff] hover:text-[#3562fa]"
-                    >
-                      {item.name}
-                      <ChevronRight className="h-4 w-4" />
-                    </button>
-
-                    <div className="invisible absolute left-full top-0 ml-2 w-[320px] translate-x-3 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-[0_22px_65px_rgba(15,23,42,0.14)] transition-all duration-200 group-hover/banking:visible group-hover/banking:translate-x-0 group-hover/banking:opacity-100">
-                      <p className="px-4 pb-2 pt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
-                        Connected Banking
-                      </p>
-
-                      {bankingItems.map((bankingItem) => (
-                        <Link
-                          key={bankingItem.name}
-                          href={bankingItem.href}
-                          className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-[14px] font-medium text-[#334155] transition-colors hover:bg-[#f4f7ff] hover:text-[#3562fa]"
-                        >
-                          <span>{bankingItem.name}</span>
-
-                          {bankingItem.badge && (
-                            <span
-                              className={`shrink-0 rounded-full px-2 py-1 text-[9px] font-bold ${
-                                bankingItem.badge === "COMING SOON"
-                                  ? "bg-amber-50 text-amber-600"
-                                  : "bg-blue-50 text-[#3562fa]"
-                              }`}
-                            >
-                              {bankingItem.badge}
-                            </span>
-                          )}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[14px] font-medium text-[#334155] transition-colors hover:bg-[#f4f7ff] hover:text-[#3562fa]"
-                  >
-                    <span>{item.name}</span>
-
-                    {item.badge && (
-                      <span className="shrink-0 rounded-full bg-amber-50 px-2 py-1 text-[9px] font-bold text-amber-600">
-                        {item.badge}
-                      </span>
-                    )}
-                  </Link>
-                )
-              )}
-            </div>
-          </div>
-
-          <Link
-            href="/#demo"
-            className="text-[15px] font-semibold text-[#17263b] transition-colors hover:text-[#3562fa]"
-          >
-            Demo
-          </Link>
-
-          <Link
-            href="/#contact"
-            className="text-[15px] font-semibold text-[#17263b] transition-colors hover:text-[#3562fa]"
-          >
-            Contact Us
-          </Link>
-        </div>
-
-        {/* Desktop Login Button */}
-        <Link
-          href="/login"
-          className="hidden rounded-lg bg-[#3562fa] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_24px_rgba(53,98,250,0.22)] transition hover:-translate-y-0.5 hover:bg-[#2855ee] lg:inline-flex"
-        >
-          Login
+       <div className="hidden items-center gap-8 lg:flex">
+  {/* Desktop Navigation */}
+      <div className="flex items-center gap-17">
+        <Link href="/" className="text-[15px] font-semibold text-[#17263b] transition-colors hover:text-[#3562fa]">
+          Home
         </Link>
+
+        {/* keep your Solutions Dropdown here */}
+        {/* Solutions Dropdown */}
+        <div className="group relative">
+                <button
+                  type="button"
+                  className="flex items-center gap-1.5 py-7 text-[15px] font-semibold text-[#17263b] transition-colors group-hover:text-[#3562fa]"
+                >
+                  Solutions
+                  <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                </button>
+
+                <div className="invisible absolute left-1/2 top-full w-[320px] -translate-x-1/2 translate-y-3 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-[0_22px_65px_rgba(15,23,42,0.14)] transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  {solutionItems.map((item) =>
+                    item.hasSubmenu ? (
+                      <div key={item.name} className="group/banking relative">
+                        <button
+                          type="button"
+                          className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[14px] font-semibold text-[#17263b] transition-colors hover:bg-[#f4f7ff] hover:text-[#3562fa]"
+                        >
+                          {item.name}
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+
+                        <div className="invisible absolute left-full top-0 ml-2 w-[320px] translate-x-3 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-[0_22px_65px_rgba(15,23,42,0.14)] transition-all duration-200 group-hover/banking:visible group-hover/banking:translate-x-0 group-hover/banking:opacity-100">
+                          <p className="px-4 pb-2 pt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                            Connected Banking
+                          </p>
+
+                          {bankingItems.map((bankingItem) => (
+                            <Link
+                              key={bankingItem.name}
+                              href={bankingItem.href}
+                              className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-[14px] font-medium text-[#334155] transition-colors hover:bg-[#f4f7ff] hover:text-[#3562fa]"
+                            >
+                              <span>{bankingItem.name}</span>
+
+                              {bankingItem.badge && (
+                                <span
+                                  className={`shrink-0 rounded-full px-2 py-1 text-[9px] font-bold ${
+                                    bankingItem.badge === "COMING SOON"
+                                      ? "bg-amber-50 text-amber-600"
+                                      : "bg-blue-50 text-[#3562fa]"
+                                  }`}
+                                >
+                                  {bankingItem.badge}
+                                </span>
+                              )}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[14px] font-medium text-[#334155] transition-colors hover:bg-[#f4f7ff] hover:text-[#3562fa]"
+                      >
+                        <span>{item.name}</span>
+
+                        {item.badge && (
+                          <span className="shrink-0 rounded-full bg-amber-50 px-2 py-1 text-[9px] font-bold text-amber-600">
+                            {item.badge}
+                          </span>
+                        )}
+                      </Link>
+                    )
+                  )}
+                </div>
+              </div>
+
+        <Link href="/#demo" className="text-[15px] font-semibold text-[#17263b] transition-colors hover:text-[#3562fa]">
+          Demo
+        </Link>
+
+        <Link href="/#contact" className="text-[15px] font-semibold text-[#17263b] transition-colors hover:text-[#3562fa]">
+          Contact Us
+        </Link>
+      </div>
+
+      <Link
+        href="/login"
+        className="rounded-lg bg-[#3562fa] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_24px_rgba(53,98,250,0.22)] transition hover:-translate-y-0.5 hover:bg-[#2855ee]"
+      >
+        Login
+      </Link>
+    </div>
 
         {/* Mobile Menu Button */}
         <button
