@@ -24,6 +24,9 @@ const tickerLogos = [
   "AU BANK",
   "GST Recon",
   "Smart TDS",
+  "Smart Bank Recon",
+  "Smart Purchase",
+  "Smart Reports",
 ];
 
 const quickLinks = [
@@ -35,57 +38,61 @@ const quickLinks = [
   { label: "Something else?", icon: PenLine },
 ];
 
-const statCards = ["135 Currencies", "95%+ Success Rates", "Apple Pay & Google Pay"];
-
 const heroSlides = [
   {
     heading: "Smart TDS Automation",
     description: "built for the accountant who lives in Tally",
+    subline: "Section-wise Calculations | Auto Vouchers | 24Q and 26Q Ready",
+    pills: ["TDS Calculated", "Vouchers Created", "26Q Ready"],
     image: "/images/tallykonnect-hero-model-removebg-preview.png",
-    alt: "International payments representative",
-    badge: "INTERNATIONAL PAYMENTS",
-  },
-  {
-    heading: "Connected Banking",
-    description: "pay vendors without leaving Tally",
-    image: "/images/tallykonnect-hero-model-removebg-preview.png",
-    alt: "Business banking representative",
-    badge: "BUSINESS BANKING",
+    alt: "Smart TDS Automation",
+    badge: "SMART TDS",
   },
   {
     heading: "Smart Bank Recon",
     description: "close your books in 30 minutes",
+    subline: "200+ Bank Formats | Direct Tally Integration | Zero Manual Entry",
+    pills: ["Statement Uploaded", "Entries Matched", "Books Closed"],
     image: "/images/tallykonnect-hero-model-removebg-preview.png",
-    alt: "Cross-border payouts representative",
-    badge: "GLOBAL PAYOUTS",
+    alt: "Smart Bank Recon",
+    badge: "BANK RECON",
   },
   {
     heading: "Connected Banking",
     description: "pay vendors without leaving Tally",
+    subline: "Yes Bank | Canara Bank | AU Bank | More Coming",
+    pills: ["Balance Checked", "Payment Sent", "Tally Updated"],
     image: "/images/tallykonnect-hero-model-removebg-preview.png",
-    alt: "Money movement representative",
-    badge: "MONEY MOVEMENT",
+    alt: "Connected Banking",
+    badge: "CONNECTED BANKING",
   },
   {
     heading: "Smart Purchase",
     description: "reads the invoice so your team doesn't have to",
+    subline: "OCR Powered | Auto Ledger Posting | Duplicate Detection",
+    pills: ["Invoice Scanned", "Ledger Posted", "Duplicate Flagged"],
+    clientCard: "Krishna Enterprises | Powered by TallyKonnect Smart Purchase",
     image: "/images/tallykonnect-hero-model-removebg-preview.png",
-    alt: "Money movement representative",
-    badge: "MONEY MOVEMENT",
+    alt: "Smart Purchase",
+    badge: "SMART PURCHASE",
   },
   {
     heading: "GST Reconciliation",
     description: "find every mismatch before it costs you",
+    subline: "GSTR-2A and 2B Matching | Clause 44 | Mismatch Alerts",
+    pills: ["GSTR-2B Matched", "Mismatches Found", "Compliance Done"],
     image: "/images/tallykonnect-hero-model-removebg-preview.png",
-    alt: "Money movement representative",
-    badge: "MONEY MOVEMENT",
+    alt: "GST Reconciliation",
+    badge: "GST RECON",
   },
   {
     heading: "Smart Reports",
     description: "the reports Tally never gave you",
+    subline: "Auto Data Backup | Godown Wise Reports | MSME Supplier Reports",
+    pills: ["Daily Backup", "Stock Report Ready", "MSME Report Done"],
     image: "/images/tallykonnect-hero-model-removebg-preview.png",
-    alt: "Money movement representative",
-    badge: "MONEY MOVEMENT",
+    alt: "Smart Reports",
+    badge: "SMART REPORTS",
   },
 ];
 
@@ -148,10 +155,10 @@ export default function HeroSection() {
 
       <div className="relative mx-auto flex min-h-[calc(100vh-82px)] w-full max-w-[1600px] flex-col px-5 pb-48 pt-20 sm:px-10 lg:px-14 lg:pb-36 lg:pt-0 xl:px-16">
         <div className="grid flex-1 items-center gap-14 lg:grid-cols-[minmax(510px,0.98fr)_minmax(560px,1.02fr)]">
-          <div className="hero-copy relative z-20 max-w-[700px] lg:pl-4">
+          <div className="hero-copy relative z-20 max-w-[760px] lg:pl-4">
             <h1
               id="payments-heading"
-              className="text-balance text-[clamp(2.7rem,4.1vw,4.55rem)] font-medium leading-[1.08] tracking-[-0.065em] text-[#16283e]"
+              className="text-balance text-[clamp(2.55rem,4.1vw,4.55rem)] font-medium leading-[1.08] tracking-[-0.065em] text-[#16283e]"
             >
               <span className="relative block min-h-[1.12em] overflow-hidden text-[#365cf3]">
                 <AnimatePresence mode="wait" initial={false}>
@@ -167,22 +174,75 @@ export default function HeroSection() {
                   </motion.span>
                 </AnimatePresence>
               </span>
-              <span className="block">for founders defying all odds</span>
+
+              <span className="relative block min-h-[1.12em] overflow-hidden">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={currentSlide.description}
+                    className="block"
+                    initial={{ opacity: 0, y: 32 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -32 }}
+                    transition={{
+                      duration: 0.46,
+                      ease: [0.22, 1, 0.36, 1],
+                      delay: 0.03,
+                    }}
+                  >
+                    {currentSlide.description}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
             </h1>
 
             <div className="relative mt-6 min-h-[32px] overflow-hidden text-[clamp(1rem,1.13vw,1.18rem)] font-medium tracking-[-0.012em] text-[#33455c]">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.p
-                  key={currentSlide.description}
+                  key={currentSlide.subline}
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -14 }}
                   transition={{ duration: 0.34 }}
                 >
-                  {currentSlide.description}
+                  {currentSlide.subline}
                 </motion.p>
               </AnimatePresence>
             </div>
+
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={`${currentSlide.heading}-pills`}
+                className="mt-5 flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.34 }}
+              >
+                {currentSlide.pills.map((pill) => (
+                  <span
+                    key={pill}
+                    className="rounded-full bg-[#edf2ff] px-4 py-2 text-sm font-semibold text-[#365cf3] shadow-sm"
+                  >
+                    {pill}
+                  </span>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait" initial={false}>
+              {currentSlide.clientCard && (
+                <motion.div
+                  key={currentSlide.clientCard}
+                  className="mt-4 inline-flex rounded-xl border border-[#dfe8ff] bg-white px-5 py-3 text-sm font-semibold text-[#33455c] shadow-[0_12px_30px_rgba(24,42,72,0.08)]"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {currentSlide.clientCard}
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <div className="mt-8 flex flex-wrap items-center gap-7">
               <a
@@ -191,6 +251,7 @@ export default function HeroSection() {
               >
                 Sign Up Now
               </a>
+
               <a
                 href="#more"
                 className="group inline-flex items-center gap-2 text-[1.05rem] font-semibold text-[#3158ec]"
@@ -222,8 +283,14 @@ export default function HeroSection() {
               transition={{ duration: 5.6, ease: "easeInOut", repeat: Infinity }}
               className="floating-card absolute right-[10%] top-[3%] w-[200px] rounded-2xl border border-white/55 bg-gradient-to-br from-[#6c98f7]/95 to-[#acccfd]/90 px-6 py-5 text-center text-white shadow-[0_24px_58px_rgba(62,105,213,0.22)] backdrop-blur"
             >
-              <p className="text-[1.35rem] font-semibold tracking-[-0.03em]">◢ TallyKonnect</p>
-              <p className="mt-2 text-[10px] tracking-[0.22em] text-white/85">POWERED BY</p>
+              <p className="text-[1.35rem] font-semibold tracking-[-0.03em]">
+                ◢ TallyKonnect
+              </p>
+
+              <p className="mt-2 text-[10px] tracking-[0.22em] text-white/85">
+                POWERED BY
+              </p>
+
               <AnimatePresence mode="wait" initial={false}>
                 <motion.p
                   key={currentSlide.badge}
@@ -239,6 +306,31 @@ export default function HeroSection() {
               </AnimatePresence>
             </motion.div>
 
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={`${currentSlide.heading}-floating-pills`}
+                className="floating-card absolute left-[4%] top-[21%] flex max-w-[250px] flex-col gap-3"
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -24 }}
+                transition={{ duration: 0.42 }}
+              >
+                {currentSlide.pills.map((pill, index) => (
+                  <motion.div
+                    key={pill}
+                    className="rounded-full border border-white/70 bg-white/90 px-5 py-3 text-sm font-semibold text-[#244779] shadow-[0_14px_32px_rgba(24,42,72,0.12)] backdrop-blur"
+                    animate={{ x: [0, index % 2 === 0 ? 6 : -6, 0] }}
+                    transition={{
+                      duration: 4.5 + index,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {pill}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
 
             <motion.div
               className="floating-card absolute bottom-[8%] left-[9%] rounded-full bg-gradient-to-r from-[#6f9cf5] to-[#3957d8] px-8 py-4 text-lg text-white shadow-xl"
@@ -259,6 +351,7 @@ export default function HeroSection() {
         >
           <ArrowLeft size={17} />
         </button>
+
         <button
           type="button"
           onClick={nextSlide}
@@ -268,7 +361,8 @@ export default function HeroSection() {
           <ArrowRight size={17} />
         </button>
 
-        {/* <div className="search-dock absolute inset-x-5 bottom-8 z-40 flex flex-col gap-4 lg:inset-x-14 lg:flex-row lg:items-center">
+        {/* 
+        <div className="search-dock absolute inset-x-5 bottom-8 z-40 flex flex-col gap-4 lg:inset-x-14 lg:flex-row lg:items-center">
           <nav className="flex min-h-[80px] flex-1 flex-col items-start gap-4 rounded-xl border border-slate-100 bg-white px-5 py-4 shadow-[0_14px_42px_rgba(24,42,72,0.10)] lg:flex-row lg:items-center lg:gap-8 lg:px-8">
             <div className="flex shrink-0 items-center gap-3 font-semibold text-[#182d46]">
               <Search className="h-5 w-5 text-[#4166f5]" strokeWidth={2.4} />
@@ -295,7 +389,8 @@ export default function HeroSection() {
           >
             <Sparkles className="h-5 w-5 text-[#17c98e]" /> Ask RAY
           </button>
-        </div> */}
+        </div> 
+        */}
       </div>
 
       <LogoTracker />
@@ -307,6 +402,7 @@ function BackgroundArtwork() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute -right-28 -top-28 h-[780px] w-[760px] rounded-full bg-[radial-gradient(circle,rgba(115,175,253,0.21)_0%,rgba(255,255,255,0)_68%)]" />
+
       <motion.div
         className="absolute bottom-[84px] right-0 hidden h-[83%] w-[57%] lg:block"
         animate={{ x: [0, 12, 0] }}
@@ -321,8 +417,6 @@ function BackgroundArtwork() {
   );
 }
 
-//sdadsad
-
 function LogoTracker() {
   return (
     <div
@@ -331,6 +425,7 @@ function LogoTracker() {
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent md:w-40" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent md:w-40" />
+
       <motion.div
         className="flex w-max items-center gap-14 whitespace-nowrap px-7 text-sm font-semibold tracking-[0.06em] text-[#52627a] sm:gap-20"
         animate={{ x: ["0%", "-50%"] }}
