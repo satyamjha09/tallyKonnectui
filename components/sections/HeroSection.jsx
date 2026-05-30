@@ -175,7 +175,7 @@ export default function HeroSection() {
                 </AnimatePresence>
               </span>
 
-              <span className="relative block min-h-[1.12em] overflow-hidden">
+              <span className="relative block min-h-[1.18em] overflow-hidden text-[clamp(1.65rem,2.55vw,2.75rem)] leading-[1.12] tracking-[-0.04em]">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
                     key={currentSlide.description}
